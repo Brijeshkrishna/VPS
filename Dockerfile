@@ -8,7 +8,7 @@ RUN pacman -Sc
 
 RUN mkdir /var/run/sshd
 
-RUN useradd --user-group --create-home --system mogenius;
+RUN useradd --user-group --create-home --system user_root
 
 EXPOSE 22
 
