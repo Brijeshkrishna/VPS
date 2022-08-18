@@ -4,7 +4,9 @@ COPY run_at_start.sh ./run_at_start.sh
 
 RUN dnf upgrade -y
 
-RUN dnf install openssh-server iproute2 -y
+RUN dnf makecache --refresh
+
+RUN dnf install openssh-server iproute -y
 
 RUN mkdir /var/run/sshd
 
