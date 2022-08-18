@@ -1,5 +1,7 @@
 FROM fedora
 
+COPY run_at_start.sh ./run_at_start.sh 
+
 RUN dnf upgrade -y
 
 RUN dnf install openssh-server iproute2 -y
