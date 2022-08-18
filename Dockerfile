@@ -8,7 +8,7 @@ RUN apt-get install apt-utils openssh-server iproute2 software-properties-common
  
 RUN mkdir /var/run/sshd
 
-RUN useradd --user-group --create-home --system mogenius
+RUN useradd --user-group --create-home --system user_root
 
 RUN echo 'root:root' | chpasswd
 
