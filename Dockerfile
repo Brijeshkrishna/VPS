@@ -4,7 +4,7 @@ RUN pacman -Syu --noconfirm
 
 RUN pacman -Sy openssh iproute2 --noconfirm 
 
-RUN pacman -Sc
+RUN pacman -Sc --noconfirm 
 
 RUN mkdir /var/run/sshd
 
