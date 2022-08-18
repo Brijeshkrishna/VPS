@@ -1,24 +1,24 @@
-FROM ubuntu:20.04
+FROM archlinux
 
-COPY run_at_start.sh ./run_at_start.sh 
+RUN pacman -Syu --noconfirm
 
-RUN apt-get update -y && apt-get upgrade -y
+RUN pacman -Sy openssh iproute2 --noconfirm 
 
-RUN apt-get install apt-utils openssh-server iproute2 software-properties-common -y
- 
+RUN pacman -Sc
+
 RUN mkdir /var/run/sshd
 
-RUN useradd --user-group --create-home --system mogenius
+RUN useradd --user-group --create-home --system mogenius;
+
+EXPOSE 22
 
 RUN echo 'root:root' | chpasswd
 
-EXPOSE 22
+RUN mkdir /root/.ssh
 
 RUN sed -ri 's/^#?PermitRootLogin\s+.*/PermitRootLogin yes/' /etc/ssh/sshd_config
 RUN sed -ri 's/UsePAM yes/#UsePAM yes/g' /etc/ssh/sshd_config
 
-RUN mkdir /root/.ssh
-
-RUN apt-get clean
+RUN /usr/bin/ssh-keygen -A
 
 CMD ["/usr/bin/sh","./run_at_start.sh"]
