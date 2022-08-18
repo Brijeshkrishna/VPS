@@ -32,4 +32,4 @@ RUN apt-get autoclean
 
 RUN if [ -e "/run_at_start.sh" ] ; then RUN run_at_start.sh ; fi
 
-CMD "/usr/bin/ip a ; /usr/sbin/sshd -D -e
+CMD "/usr/bin/ip a ; /usr/sbin/sshd -D -e"
