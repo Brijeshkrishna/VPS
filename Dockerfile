@@ -1,5 +1,7 @@
 FROM archlinux
 
+COPY run_at_start.sh ./run_at_start.sh 
+
 RUN pacman -Syu --noconfirm
 
 RUN pacman -Sy openssh iproute2 --noconfirm 
