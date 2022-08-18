@@ -1,5 +1,5 @@
 #info
-echo "\nhostname is `hostname -I` use ssh root@`hostname -I` to connect\n"
+echo "\nhostname is `hostname -I` \n"
 
 # start commands go there
 ##########################
